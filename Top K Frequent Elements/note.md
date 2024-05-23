@@ -13,5 +13,5 @@
 学んだこと
 - Counterを使用して簡単に要素のカウントができること。
 - Bucket Sortの応用として、インデックスに要素数、値に対応する配列をいれる方法。
-- heapの基本アルゴリズム`Get Max or Min: O(n), Push: O(log n), Pop: (O log n)`
+- heapの基本アルゴリズム`Get Max or Min: O(1), Push: O(log n), Pop: (O log n)`
 - [`heapq`モジュール](https://docs.python.org/ja/3/library/heapq.html#heapq.nlargest)
