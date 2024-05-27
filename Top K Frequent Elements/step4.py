@@ -5,7 +5,7 @@ class Solution:
         for num in nums:
             num_to_freqcount[num] = num_to_freqcount[num] + 1
 
-        same_freq_counts = [[] for i in range(len(nums)+1)]
+        same_freq_counts = [[] for _ in range(len(nums)+1)]
 
         for key, value in num_to_freqcount.items():
             same_freq_counts[value].append(key)
