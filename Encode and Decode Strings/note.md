@@ -29,3 +29,27 @@
 #　振り返り
 
 ## Step1
+
+値がnon-asciiであるため、non-ascii値を使用してjoin,splitを使用としたが、スペースもascii値であることに気づいておらず失敗。
+
+```step1.py
+class Codec:
+    def encode(self, strs: List[str]) -> str:
+        """Encodes a list of strings to a single string.
+        """
+        return ' '.join(strs)
+
+    def decode(self, s: str) -> List[str]:
+        """Decodes a single string to a list of strings.
+        """
+        if s == '':
+            return [""]
+        else:
+            return s.split()
+
+
+# Your Codec object will be instantiated and called as such:
+# codec = Codec()
+# codec.decode(codec.encode(strs))
+```
+
