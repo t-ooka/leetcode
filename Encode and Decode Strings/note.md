@@ -16,6 +16,10 @@
 時間計算量: o(n)
 空間計算量: o(k)
 
+エスケープ関連
+- [double-terminated-string](https://devblogs.microsoft.com/oldnewthing/20091008-00/?p=16443)
+- [Protocol Buffers](https://ja.wikipedia.org/wiki/Protocol_Buffers)
+
 ## Chunked transfer encoding
 
 もとの文字列の長さとdelimeterを使用して、chunk毎にもとの文字列長さがわかるようencodeする方法。
