@@ -18,7 +18,7 @@
 
 エスケープ関連
 - [double-terminated-string](https://devblogs.microsoft.com/oldnewthing/20091008-00/?p=16443)
-- [Protocol Buffers](https://ja.wikipedia.org/wiki/Protocol_Buffers)
+- [Protocol Buffers](https://ja.wikipedia.org/wiki/Protocol_Buffers), [例](https://github.com/protocolbuffers/protobuf/blob/1194440c2489fc58051a245b5db74c0fd1bbf4b0/upb/json/decode.c#L356)
 
 ## Chunked transfer encoding
 
