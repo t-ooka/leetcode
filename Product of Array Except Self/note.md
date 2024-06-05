@@ -43,5 +43,15 @@ return res
 # 振り返り
 
 ## Step1
-Left, Rightの方法で進めようとしたが、コーディングが遅く15分タイムアウト。
+Left, Rightの方法で進めようとしたが,15分タイムアウト。
 
+```sample.py
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        prefix = []
+        for i in range(0, len(nums)):
+            if i == 0:
+                prefix.append(nums[i])
+            else:
+                prefix.append(nums[i]+prefix[])
+```
