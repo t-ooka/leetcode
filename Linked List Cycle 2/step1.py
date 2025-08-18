@@ -15,4 +15,4 @@ class Solution:
         seen_nodes.add(node)
         node = node.next
         
-      return Non
+      return None
