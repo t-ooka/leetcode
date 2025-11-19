@@ -5,6 +5,17 @@
 
 # step2
 
+## 典型コメント集をみて
+
+- https://discord.com/channels/1084280443945353267/1235829049511903273/1245555256360697949
+ - Counterを使うのはいいが、その実装を理解しているかが出題者の意図なのでは
+ - dictを初期化、その後listを作成しsortして上位何件かを取るという処理ができているか
+- https://discord.com/channels/1084280443945353267/1183683738635346001/1185972070165782688 
+ - QuickSelectというアルゴリズムがある
+  - https://www.geeksforgeeks.org/dsa/quickselect-algorithm/
+
+
+
 ## Bucket Sort
 
 Bucket Sortという方法があった。
