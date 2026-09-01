@@ -64,8 +64,13 @@ jobs:
               return;
             }
 
-            const extensions = { Python: 'py', 'C++': 'cpp' };
-            const extension = extensions[language];
+            // Add another entry here when supporting a new language.
+            const supportedLanguages = {
+              Python: { extension: 'py' },
+              Ruby: { extension: 'rb' },
+              'C++': { extension: 'cpp' },
+            };
+            const extension = supportedLanguages[language]?.extension;
             if (!extension) {
               core.setFailed(`未対応の言語です: ${language}`);
               return;

@@ -23,6 +23,7 @@ body:
       label: Language
       options:
         - Python
+        - Ruby
         - C++
     validations:
       required: true
@@ -53,4 +54,3 @@ body:
       placeholder: コードを貼り付けてください
     validations:
       required: true
-
