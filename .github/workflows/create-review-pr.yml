@@ -32,17 +32,33 @@ jobs:
               return;
             }
 
+            const sectionLabels = [
+              'Problem URL',
+              'Language',
+              'Step 1',
+              'Step 2',
+              'Step 3',
+              'Explanation (memo.md)',
+            ];
+
             function field(label) {
-              const escaped = label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-              const match = issue.body.match(
-                new RegExp(`(?:^|\\n)### ${escaped}\\s*\\n+([\\s\\S]*?)(?=\\n### |$)`),
-              );
-              return match?.[1].trim() ?? '';
+              const marker = `### ${label}`;
+              const start = issue.body.indexOf(marker);
+              if (start === -1) return '';
+
+              const contentStart = start + marker.length;
+              const nextLabel = sectionLabels[sectionLabels.indexOf(label) + 1];
+              const nextMarker = nextLabel
+                ? issue.body.indexOf(`\n### ${nextLabel}`, contentStart)
+                : -1;
+              const end = nextMarker === -1 ? issue.body.length : nextMarker;
+              return issue.body.slice(contentStart, end).trim();
             }
 
             const problemUrl = field('Problem URL');
             const language = field('Language');
             const steps = [field('Step 1'), field('Step 2'), field('Step 3')];
+            const explanation = field('Explanation (memo.md)');
 
             let parsedUrl;
             try {
@@ -61,6 +77,10 @@ jobs:
 
             if (steps.some((code) => !code || code === '_No response_')) {
               core.setFailed('Step 1〜3 のコードをすべて入力してください。');
+              return;
+            }
+            if (!explanation || explanation === '_No response_') {
+              core.setFailed('解説文を入力してください。');
               return;
             }
 
@@ -126,6 +146,12 @@ jobs:
               type: 'blob',
               content: `${code.replace(/\r\n/g, '\n')}\n`,
             }));
+            tree.push({
+              path: `${directory}/memo.md`,
+              mode: '100644',
+              type: 'blob',
+              content: `${explanation.replace(/\r\n/g, '\n')}\n`,
+            });
 
             const { data: createdTree } = await github.rest.git.createTree({
               owner,
@@ -163,6 +189,7 @@ jobs:
                 `- step 1: Accepted になるコード`,
                 `- step 2: 読みやすく整えたコード`,
                 `- step 3: 時間を測って書き直したコード`,
+                `- memo.md: 解法や計算量などの解説`,
                 '',
                 `Closes #${issue.number}`,
               ].join('\n'),

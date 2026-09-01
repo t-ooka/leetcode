@@ -54,3 +54,26 @@ body:
       placeholder: コードを貼り付けてください
     validations:
       required: true
+
+  - type: textarea
+    id: explanation
+    attributes:
+      label: Explanation (memo.md)
+      description: 各ステップで考えたこと、選んだ解法、計算量、疑問点などを Markdown で記入してください
+      placeholder: |
+        # step1
+
+        最初に考えたことや詰まった点
+
+        # step2
+
+        読みやすくするために変更したこと、他の解法との比較
+
+        # step3
+
+        書き直して気づいたこと
+
+        時間計算量: O(...)
+        空間計算量: O(...)
+    validations:
+      required: true
