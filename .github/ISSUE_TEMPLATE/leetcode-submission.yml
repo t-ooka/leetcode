@@ -1,0 +1,56 @@
+name: LeetCode のレビュー依頼を作成
+description: 問題 URL と step 1〜3 のコードからレビュー用 PR を自動作成します
+title: "[LeetCode] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        問題 URL、言語、3 段階のコードを入力してください。
+        Issue を作成すると、専用ブランチと Pull Request が自動で作られます。
+
+  - type: input
+    id: problem_url
+    attributes:
+      label: Problem URL
+      description: LeetCode の問題ページの URL
+      placeholder: https://leetcode.com/problems/two-sum/
+    validations:
+      required: true
+
+  - type: dropdown
+    id: language
+    attributes:
+      label: Language
+      options:
+        - Python
+        - C++
+    validations:
+      required: true
+
+  - type: textarea
+    id: step1
+    attributes:
+      label: Step 1
+      description: まず Accepted になったコード（コードフェンスは不要です）
+      placeholder: コードを貼り付けてください
+    validations:
+      required: true
+
+  - type: textarea
+    id: step2
+    attributes:
+      label: Step 2
+      description: 読みやすく整えたコード（コードフェンスは不要です）
+      placeholder: コードを貼り付けてください
+    validations:
+      required: true
+
+  - type: textarea
+    id: step3
+    attributes:
+      label: Step 3
+      description: 時間を測って書き直した最終コード（コードフェンスは不要です）
+      placeholder: コードを貼り付けてください
+    validations:
+      required: true
+
